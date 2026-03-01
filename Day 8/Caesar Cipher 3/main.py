@@ -1,5 +1,7 @@
 # TODO-1: Import and print the logo from art.py when the program starts.
+from art import logo
 
+print(logo)
 
 alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
@@ -8,15 +10,22 @@ alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n'
 
 def caesar(original_text, shift_amount, encode_or_decode):
     output_text = ""
+    unmodified_text = ""
 
     for letter in original_text:
+
         if encode_or_decode == "decode":
             shift_amount *= -1
+
+        elif letter not in alphabet:
+            unmodified_text += letter
+
 
         shifted_position = alphabet.index(letter) + shift_amount
         shifted_position %= len(alphabet)
         output_text += alphabet[shifted_position]
-    print(f"Here is the {encode_or_decode}d result: {output_text}")
+
+    print(f"Here is the {encode_or_decode}d result: {output_text}{unmodified_text}")
 
 
 # TODO-3: Can you figure out a way to restart the cipher program?
