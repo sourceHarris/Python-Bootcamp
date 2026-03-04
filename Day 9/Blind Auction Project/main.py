@@ -8,6 +8,7 @@ dictionary = {}
 
 game_continue = True
 score = 0
+highest_bidder = ""
 
 while game_continue:
     user = input("What is your name?: ").lower()
@@ -22,14 +23,13 @@ while game_continue:
     dictionary[user] = user
     dictionary[user] = bid
 
-    for entry in dictionary:
-        score = dictionary[entry]
+for entry in dictionary:
 
-        if dictionary[entry] > score:
-            dictionary[entry] = score
-        elif score > dictionary[entry]:
-            print(f"{entry} is the winner!")
+    if dictionary[entry] > score:
+        score = dictionary[entry]
+        highest_bidder = entry
 # TODO-4: Compare bids in dictionary
 
 
 print(dictionary)
+print(f"{highest_bidder} is the winner")
